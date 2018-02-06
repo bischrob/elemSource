@@ -1,10 +1,23 @@
 Package: elemSource
-Title: What the Package Does (one line, title case)
+Title: Developed to source artifacts
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.1)
-License: What license is it under?
+Authors@R: person("Robert", "Bischoff", email = "bischrob@gmail.com", role = c("aut", "cre"))
+Description: See readme on github (https://github.com/bischrob/elemSource)
+Depends: R (>= 3.0.1)
+License: What license is it under? None currently
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Imports: 
+  ggplot2,
+  ggbiplot,
+  rio,
+  xlsx,
+  svDialogs,
+  MASS,
+  dplyr,
+  grid,
+  gridExtra
+Suggest:
+  shiny
+  
