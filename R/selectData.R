@@ -19,6 +19,7 @@ selectData <- function(){
   options(warn = -1)
   suppressMessages(library(rio))
   suppressMessages(library(svDialogs))
+  suppressMessages(library(dplyr))
   options(warn = 0)
   # first have user select dataframes
   svDialogs::msgBox("Select up to two files to use in sourcing")
