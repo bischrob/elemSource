@@ -1,6 +1,6 @@
-#' Function to source data
+#' Run Triplot Shiny App
 #'
-#' Runs function to source data
+#' Function to run Triplot shiny app
 #'
 #' @param None dataframe to source
 #'

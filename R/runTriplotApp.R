@@ -1,6 +1,6 @@
-#' Function to source data
+#' Run Triplot Shiny App
 #'
-#' Runs function to source data
+#' Function to run Triplot shiny app
 #'
 #' @param None
 #'
@@ -14,7 +14,7 @@ runTriplotApp <- function ()
 { ... }
 
 # Function
-runBiplotApp <- function() {
+runTriplotApp <- function() {
   #load packages
   options(warn = -1)
   suppressMessages(library(shiny))
