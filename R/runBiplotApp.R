@@ -1,6 +1,6 @@
-#' Run Triplot Shiny App
+#' Run Biplot Shiny App
 #'
-#' Function to run Triplot shiny app
+#' Function to run Biplot shiny app
 #'
 #' @param None dataframe to source
 #'
