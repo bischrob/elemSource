@@ -23,10 +23,10 @@ runBiplotApp <- function() {
   options(warn = 0)
 
   # Create variables for subsetting
-  assigned <- which(df$Status == "assigned")
-  unAssigned <- which(df$Status == "unassigned")
-  artifacts <- which(df$Type == "Artifact")
-  sources <- c(which(df$Type == "Source"),which(df$Type == "Source Flake"))
+  assigned <<- which(df$Status == "assigned")
+  unAssigned <<- which(df$Status == "unassigned")
+  artifacts <<- which(df$Type == "Artifact")
+  sources <<- c(which(df$Type == "Source"),which(df$Type == "Source Flake"))
 
 
   # find directory
