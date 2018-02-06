@@ -2,7 +2,7 @@
 % Please edit documentation in R/runTriplotApp.R
 \name{runTriplotApp}
 \alias{runTriplotApp}
-\title{Function to source data}
+\title{Run Triplot Shiny App}
 \usage{
 runTriplotApp()
 }
@@ -13,7 +13,7 @@ runTriplotApp()
 None
 }
 \description{
-Runs function to source data
+Function to run Triplot shiny app
 }
 \examples{
 runTriplotApp())

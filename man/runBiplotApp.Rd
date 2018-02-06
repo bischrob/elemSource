@@ -2,7 +2,7 @@
 % Please edit documentation in R/runBiplotApp.R
 \name{runBiplotApp}
 \alias{runBiplotApp}
-\title{Function to source data}
+\title{Run Biplot Shiny App}
 \usage{
 runBiplotApp()
 }
@@ -13,7 +13,7 @@ runBiplotApp()
 None
 }
 \description{
-Runs function to source data
+Function to run Biplot shiny app
 }
 \examples{
 runBiplotApp(df)
