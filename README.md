@@ -9,24 +9,28 @@ the type in the next column (can only be 'Source' or 'Artifact).
 
 ## Example
 
-Install
+#### Install
+Two packages must be installed prior to installing elemSource.
 
 ```{r echo = False}
+install.packages("devtools")
+library(devtools)
+install_github("vqv/ggbiplot")
 install_github('bischrob/elemSource')
 library(elemSource)
 ```
 
-Get data
+#### Get data
 
 ```{r echo = False}
 df <- selectData()
 ```
-Source data
+#### Source data
 
 ```{r echo = False}
 df <- elemSource()
 ```
-Run plots
+#### Run plots
 
 ```{r echo = False}
 windows(12,12) # creates pop up window for easier viewing of the scatterPlots function
