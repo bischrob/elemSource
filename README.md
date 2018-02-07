@@ -11,11 +11,14 @@ the type in the next column (can only be 'Source' or 'Artifact).
 
 #### Install
 Two packages must be installed prior to installing elemSource.
+One package is optional, but must be installed if using the shiny apps.
+Java must be installed for the rJava package to function (see https://cran.r-project.org/web/packages/rJava/index.html).
 
 ```{r echo = False}
 install.packages("devtools")
 library(devtools)
 install_github("vqv/ggbiplot")
+install_github("ropensci/plotly") # optional
 install_github('bischrob/elemSource')
 library(elemSource)
 ```
