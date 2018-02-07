@@ -17,7 +17,8 @@ Imports:
   MASS,
   dplyr,
   grid,
-  gridExtra
+  gridExtra,
+  rJava
 Suggest:
   shiny
   
