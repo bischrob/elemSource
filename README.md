@@ -12,7 +12,7 @@ the type in the next column (can only be 'Source' or 'Artifact).
 #### Install
 Two packages must be installed prior to installing elemSource.
 One package is optional, but must be installed if using the shiny apps.
-Java must be installed for the rJava package to function (see https://cran.r-project.org/web/packages/rJava/index.html).
+64 bit Java must be installed for the rJava package to function (https://www.java.com/en/download/manual.jsp).
 
 ```{r echo = False}
 install.packages("devtools")
