@@ -18,7 +18,7 @@ One package is optional, but must be installed if using the shiny apps.
 install.packages("devtools")
 library(devtools)
 install_github("vqv/ggbiplot")
-install_github("ropensci/plotly") # optional
+install.packages('plotly') # optional !Do not install development version; It causes an issue with ggbiplot!
 install_github('bischrob/elemSource')
 library(elemSource)
 ```
