@@ -85,5 +85,6 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
   g <- grid_arrange_shared_legend(mPlots)
 
   return(g)
+  on.exit(rm(k))
 }
 
