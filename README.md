@@ -9,24 +9,31 @@ the type in the next column (can only be 'Source' or 'Artifact).
 
 ## Example
 
-Install
+#### Install
+Two packages must be installed prior to installing elemSource.
+One package is optional, but must be installed if using the shiny apps.
+64 bit Java must be installed for the rJava package to function (https://www.java.com/en/download/manual.jsp).
 
 ```{r echo = False}
+install.packages("devtools")
+library(devtools)
+install_github("vqv/ggbiplot")
+install.packages('plotly') # optional !Do not install development version; It causes an issue with ggbiplot!
 install_github('bischrob/elemSource')
 library(elemSource)
 ```
 
-Get data
+#### Get data
 
 ```{r echo = False}
 df <- selectData()
 ```
-Source data
+#### Source data
 
 ```{r echo = False}
 df <- elemSource()
 ```
-Run plots
+#### Run plots
 
 ```{r echo = False}
 windows(12,12) # creates pop up window for easier viewing of the scatterPlots function
