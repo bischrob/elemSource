@@ -31,9 +31,9 @@ allBiplots <- function(df,mColors, showSources = F, onlySources = F){
     myColors <- readRDS(system.file('Colors', 'Colors.Rds', package='elemSource'))
     mColors <-  myColors$Hex[1:length(unique(df$Source))]
   }
-  dName <- unlist(strsplit(as.character(Sys.time())," ")) # Gives directory today's date
-  dName <- paste0("Figures/Plots--", dName[1])
-  if (dir.exists(dName) == F) dir.create(dName)
+
+  # set directory
+  dName <- svDialogs::dlgDir()$res
 
   if(onlySources == F){
   # run all plots

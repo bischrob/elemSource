@@ -40,7 +40,12 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
   # get all plots into a list
   # run all plots
   mPlots <- list()  # new empty list
-  k <<- 1
+
+  # create global variable needed for saving plots to list
+  .GlobalEnv$.temp.k <- 1
+  on.exit(rm(.temp.k, envir=.GlobalEnv))
+
+  # run all plots and save to list
   for (i in 7:11)
     for (j in i:11)
       local({
@@ -64,8 +69,8 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
                          level = .9,
                          lwd = .5) # this ellipse is based off the multivariate normal distribution
 
-          mPlots[[k]] <<- g  # add each plot into plot list
-          k <<- k + 1
+          mPlots[[.temp.k]] <<- g  # add each plot into plot list
+          .GlobalEnv$.temp.k <- .temp.k + 1
         }
       })
 
@@ -85,6 +90,5 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
   g <- grid_arrange_shared_legend(mPlots)
 
   return(g)
-  on.exit(rm(k))
 }
 

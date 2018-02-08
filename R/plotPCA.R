@@ -31,10 +31,11 @@ plotPCA <- function(df,mColors, showSources = F, onlySources = F){
   }
   options(warn = -1)
   suppressMessages(library(ggbiplot))
-  options(warn = -1)
-  dName <- unlist(strsplit(as.character(Sys.time())," ")) # Gives directory today's date
-  dName <- paste0("Figures/Plots--", dName[1])
-  if (dir.exists(dName) == F) dir.create(dName)
+  suppressMessages(library(svDialogs))
+  options(warn = 0)
+
+  # set directory
+  dName <- svDialogs::dlgDir()$res
 
   # PCA
   oPCAAll <- prcomp(df[,7:11], center = T, scale. = T)
