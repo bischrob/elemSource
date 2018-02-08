@@ -8,9 +8,11 @@ serverbi <- function(input, output) {
   output$plotly1 <- renderPlotly({
 
     # Assign correct data frame for radio button selected
-    if(input$source1 == 1) {plotDF <- df}
-    if(input$source1 == 2) {plotDF <- rbind.data.frame(df[assigned,],df[sources,])}
-    if(input$source1 == 3) {plotDF <- rbind.data.frame(df[unAssigned,],df[sources,])}
+    if(input$source1 == 1) {plotDF <- myTempDF1010}
+    if(input$source1 == 2) {plotDF <- rbind.data.frame(myTempDF1010[assigned,],
+                                                       myTempDF1010[sources,])}
+    if(input$source1 == 3) {plotDF <- rbind.data.frame(myTempDF1010[unAssigned,],
+                                                       myTempDF1010[sources,])}
     plotS <- plotDF[sources,]
     colS <- plotS[,as.character(input$label1)]
     shapeS <- plotS$Type
@@ -41,7 +43,8 @@ serverbi <- function(input, output) {
                        color = colS),
                    type = "norm",
                    level = .9,
-                   lwd = .5) # this ellipse is based off the multivariate normal distribution
+                   lwd = .5) # this ellipse is based off the multivariate
+                             # normal distribution
     ggplotly(g)
   })
 }

@@ -10,11 +10,11 @@
 #' runBiplotApp(df)
 #'
 #' @export
-runBiplotApp <- function ()
+runBiplotApp <- function (df)
 { ... }
 
 # Function
-runBiplotApp <- function() {
+runBiplotApp <- function(df) {
   #load packages
   options(warn = -1)
   suppressMessages(library(shiny))
@@ -23,6 +23,7 @@ runBiplotApp <- function() {
   options(warn = 0)
 
   # Create variables for subsetting
+  myTempDF1010 <<- df
   assigned <<- which(df$Status == "assigned")
   unAssigned <<- which(df$Status == "unassigned")
   artifacts <<- which(df$Type == "Artifact")
@@ -36,4 +37,5 @@ runBiplotApp <- function() {
   }
 
   shiny::runApp(appDir, display.mode = "normal")
+  on.exit(rm(myTempDF1010,assigned,unAssigned,artifacts,sources))
 }

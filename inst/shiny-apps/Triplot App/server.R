@@ -8,9 +8,11 @@ servertri <- function(input, output) {
   output$plotly1 <- renderPlotly({
 
     # Assign correct data frame for radio button selected
-    if(input$source1 == 1) {plotDF <- df}
-    if(input$source1 == 2) {plotDF <- rbind.data.frame(df[assigned,],df[sources,])}
-    if(input$source1 == 3) {plotDF <- rbind.data.frame(df[unAssigned,],df[sources,])}
+    if(input$source1 == 1) {plotDF <- myTempDF1010}
+    if(input$source1 == 2) {plotDF <- rbind.data.frame(myTempDF1010[assigned,],
+                                                       myTempDF1010[sources,])}
+    if(input$source1 == 3) {plotDF <- rbind.data.frame(myTempDF1010[unAssigned,],
+                                                       myTempDF1010[sources,])}
 
     plot_ly(data = plotDF,
                  a = plotDF[,as.numeric(input$elem1)],
@@ -28,7 +30,11 @@ servertri <- function(input, output) {
       layout(ternary = list(aaxis = list(title = names(plotDF)[as.numeric(input$elem1)]),
                             baxis = list(title = names(plotDF)[as.numeric(input$elem2)]),
                             caxis = list(title = names(plotDF)[as.numeric(input$elem3)]),
-                            margin = list(t = 500, l = 500, r = 500, bottom = 500, pad = 500)))
+                            margin = list(t = 500,
+                                          l = 500,
+                                          r = 500,
+                                          bottom = 500,
+                                          pad = 500)))
   })
 }
 
