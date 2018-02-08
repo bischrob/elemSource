@@ -28,7 +28,7 @@ allBiplots <- function(df,mColors, showSources = F, onlySources = F){
   artifacts <- which(df$Type == "Artifact")
   sources <- c(which(df$Type == "Source"),which(df$Type == "Source Flake"))
   if(missing(mColors)){
-    myColors <- readRDS("Data/Colors.Rds")
+    myColors <- readRDS(system.file('Colors', 'Colors.Rds', package='elemSource'))
     mColors <-  myColors$Hex[1:length(unique(df$Source))]
   }
   dName <- unlist(strsplit(as.character(Sys.time())," ")) # Gives directory today's date
@@ -65,7 +65,7 @@ allBiplots <- function(df,mColors, showSources = F, onlySources = F){
                                       color = df$Source[sources],
                                       shape = df$Type[sources]))
         }
-         ggsave(filename = paste0(dName,"/",names(df)[i], "-",names(df)[j],".png"), 
+         ggsave(filename = paste0(dName,"/",names(df)[i], "-",names(df)[j],".png"),
               dpi = 300, plot = g, width = 6.5, units = "in")
       }}}
 } else {
@@ -92,7 +92,7 @@ allBiplots <- function(df,mColors, showSources = F, onlySources = F){
                        type = "norm",
                        level = .9,
                        lwd = .5) # this ellipse is based off the multivariate normal distribution
-        ggsave(filename = paste0(dName,"/OnlySources",names(df)[i], "-",names(df)[j],".png"), 
+        ggsave(filename = paste0(dName,"/OnlySources",names(df)[i], "-",names(df)[j],".png"),
                dpi = 300, plot = g, width = 6.5, units = "in")
       }
     }

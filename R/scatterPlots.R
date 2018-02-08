@@ -16,17 +16,17 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL)
 { ... }
 
 # Function
-scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){ 
+scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
   if(!is.data.frame(df)){
-    stop("Please include a dataframe object.")  
+    stop("Please include a dataframe object.")
   }
   if (missing("groupName")) {
     groupName <- "Source"
-  } 
+  }
   if (missing("mColors")) {
-    myColors <- readRDS("Data/Colors.Rds")
+    myColors <- readRDS(system.file('Colors', 'Colors.Rds', package='elemSource'))
     mColors <-  myColors$Hex[1:length(unique(df$Source))]
-  } 
+  }
   artifacts <- which(df$Type == "Artifact")
   sources <- c(which(df$Type == "Source"),which(df$Type == "Source Flake"))
   # load packages
@@ -36,7 +36,7 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
   suppressMessages(library(grid))
   suppressMessages(library(gridExtra))
   options(warn = 0)
-  
+
   # get all plots into a list
   # run all plots
   mPlots <- list()  # new empty list
@@ -63,16 +63,16 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
                          type = "norm",
                          level = .9,
                          lwd = .5) # this ellipse is based off the multivariate normal distribution
-          
+
           mPlots[[k]] <<- g  # add each plot into plot list
           k <<- k + 1
         }
       })
-  
-  
+
+
   # create a function to create one shared plot
   grid_arrange_shared_legend <- function(plots) {
-    g <- ggplotGrob(plots[[1]] + theme(legend.position="bottom"))$grobs 
+    g <- ggplotGrob(plots[[1]] + theme(legend.position="bottom"))$grobs
     legend <- g[[which(sapply(g, function(x) x$name) == "guide-box")]]
     lheight <- sum(legend$height)
     grid.arrange(
@@ -83,7 +83,7 @@ scatterPlots <- function(df = "dataframe", groupName = NULL, mColors = NULL){
       heights = unit.c(unit(1, "npc") - lheight, lheight))
   }
   g <- grid_arrange_shared_legend(mPlots)
-  
+
   return(g)
 }
 
