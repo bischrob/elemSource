@@ -2,7 +2,7 @@
 #'
 #' Function to run Triplot shiny app
 #'
-#' @param None
+#' @param df Dataframe that has been sourced using the elemSource() function
 #'
 #' @return None
 #'

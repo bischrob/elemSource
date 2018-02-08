@@ -7,7 +7,7 @@
 runBiplotApp(df)
 }
 \arguments{
-\item{None}{dataframe to source}
+\item{df}{Dataframe that has been sourced using the elemSource() function}
 }
 \value{
 None

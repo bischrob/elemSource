@@ -2,7 +2,7 @@
 #'
 #' Function to run Biplot shiny app
 #'
-#' @param None dataframe to source
+#' @param df Dataframe that has been sourced using the elemSource() function
 #'
 #' @return None
 #'

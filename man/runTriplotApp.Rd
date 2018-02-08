@@ -7,7 +7,7 @@
 runTriplotApp(df)
 }
 \arguments{
-\item{None}{}
+\item{df}{Dataframe that has been sourced using the elemSource() function}
 }
 \value{
 None
