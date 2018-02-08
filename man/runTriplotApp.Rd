@@ -4,7 +4,7 @@
 \alias{runTriplotApp}
 \title{Run Triplot Shiny App}
 \usage{
-runTriplotApp()
+runTriplotApp(df)
 }
 \arguments{
 \item{None}{}

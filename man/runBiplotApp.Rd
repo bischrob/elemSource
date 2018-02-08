@@ -4,7 +4,7 @@
 \alias{runBiplotApp}
 \title{Run Biplot Shiny App}
 \usage{
-runBiplotApp()
+runBiplotApp(df)
 }
 \arguments{
 \item{None}{dataframe to source}

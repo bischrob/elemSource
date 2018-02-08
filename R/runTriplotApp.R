@@ -10,11 +10,11 @@
 #' runTriplotApp())
 #'
 #' @export
-runTriplotApp <- function ()
+runTriplotApp <- function (df)
 { ... }
 
 # Function
-runTriplotApp <- function() {
+runTriplotApp <- function(df) {
   #load packages
   options(warn = -1)
   suppressMessages(library(shiny))
