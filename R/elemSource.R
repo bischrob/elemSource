@@ -20,13 +20,14 @@ elemSource <- function(df, saveResults = T, prob = .9){
   stopifnot(is.data.frame(df))
   suppressMessages(library(MASS))
   suppressMessages(library(svDialogs))
+  suppressMessages(library(rJava))
   suppressMessages(library(xlsx))
     # Create key for rows that are either artifacts or sources
   artifacts <- which(df$Type == "Artifact")
   sources <- c(which(df$Type == "Source"),which(df$Type == "Source Flake"))
-  
+
   # log and clean values
-  # all values below zero or infinite will be removed 
+  # all values below zero or infinite will be removed
   notlogged <- df[,2:11]
   mLog <- df[,2:11]
   mLog[get("mLog") < 0] <- 0
@@ -118,7 +119,7 @@ elemSource <- function(df, saveResults = T, prob = .9){
   df$MahalProb <- maxProb
 
 #############################################################################################
-# Determines sources that are confidently sourced 
+# Determines sources that are confidently sourced
 # artifacts.
 
 # Sourced
@@ -136,7 +137,7 @@ elemSource <- function(df, saveResults = T, prob = .9){
   if(saveResults == T){
     svDialogs::msgBox("Select name and directory to save results (as an xlsx file)")
     fileName <- svDialogs::dlgSave()$res
-    xlsx::write.xlsx(df,fileName, 
+    xlsx::write.xlsx(df,fileName,
              sheetName = "Results",
              row.names = F)
     xlsx::write.xlsx(LDAPosterior[artifacts,],fileName,
