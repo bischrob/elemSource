@@ -8,15 +8,15 @@ serverbi <- function(input, output) {
   output$plotly1 <- renderPlotly({
 
     # Assign correct data frame for radio button selected
-    if(input$source1 == 1) {plotDF <- myTempDF1010}
-    if(input$source1 == 2) {plotDF <- rbind.data.frame(myTempDF1010[assigned,],
-                                                       myTempDF1010[sources,])}
-    if(input$source1 == 3) {plotDF <- rbind.data.frame(myTempDF1010[unAssigned,],
-                                                       myTempDF1010[sources,])}
-    plotS <- plotDF[sources,]
+    if(input$source1 == 1) {plotDF <- .temp.dataset}
+    if(input$source1 == 2) {plotDF <- rbind.data.frame(.temp.dataset[.temp.assigned,],
+                                                       .temp.dataset[.temp.Source,])}
+    if(input$source1 == 3) {plotDF <- rbind.data.frame(.temp.dataset[.temp.unassigned,],
+                                                       .temp.dataset[.temp.Source,])}
+    plotS <- plotDF[.temp.Source,]
     colS <- plotS[,as.character(input$label1)]
     shapeS <- plotS$Type
-    plotA <- plotDF[artifacts,]
+    plotA <- plotDF[.temp.Artifact,]
     colA <- plotA[,as.character(input$label1)]
     shapeA <- plotA$Type
 

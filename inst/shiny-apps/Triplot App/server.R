@@ -9,10 +9,10 @@ servertri <- function(input, output) {
 
     # Assign correct data frame for radio button selected
     if(input$source1 == 1) {plotDF <- myTempDF1010}
-    if(input$source1 == 2) {plotDF <- rbind.data.frame(myTempDF1010[assigned,],
-                                                       myTempDF1010[sources,])}
-    if(input$source1 == 3) {plotDF <- rbind.data.frame(myTempDF1010[unAssigned,],
-                                                       myTempDF1010[sources,])}
+    if(input$source1 == 2) {plotDF <- rbind.data.frame(myTempDF1010[.temp.assigned,],
+                                                       myTempDF1010[.temp.Source,])}
+    if(input$source1 == 3) {plotDF <- rbind.data.frame(myTempDF1010[.temp.unassigned,],
+                                                       myTempDF1010[.temp.Source,])}
 
     plot_ly(data = plotDF,
                  a = plotDF[,as.numeric(input$elem1)],
