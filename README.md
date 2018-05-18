@@ -31,7 +31,7 @@ df <- selectData()
 #### Source data
 
 ```{r echo = False}
-df <- elemSource()
+df <- elemSource(df)
 ```
 #### Run plots
 
@@ -40,6 +40,6 @@ windows(12,12) # creates pop up window for easier viewing of the scatterPlots fu
 scatterPlots(df) # runs all possible combinations of plots for quick viewing
 allBiplots(df) # saves all combinations of biplots to Figures folder and subfolder with today's date
 plotPCA(df) # saves principle components plot
-runBiplotApp() # launches shiny app for biplots
-runTriplotApp() # launches shiny app for triplots (ternary graphs)
+runBiplotApp(df) # launches shiny app for biplots
+runTriplotApp(df) # launches shiny app for triplots (ternary graphs)
 ```
